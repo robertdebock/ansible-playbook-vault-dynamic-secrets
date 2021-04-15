@@ -1,0 +1,11 @@
+---
+
+mysql_databases:
+  - name: my_db
+    encoding: utf8
+    collation: utf8_bin
+mysql_users:
+  - name: vault
+    password: VAULTvault
+    priv: "*.*:ALL,GRANT"
+    host: '%'

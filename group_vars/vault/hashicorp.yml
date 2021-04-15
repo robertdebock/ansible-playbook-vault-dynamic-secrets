@@ -1,0 +1,4 @@
+---
+
+hashicorp_products:
+  - name: vault

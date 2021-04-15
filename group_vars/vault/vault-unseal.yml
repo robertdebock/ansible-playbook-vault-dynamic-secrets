@@ -1,0 +1,15 @@
+---
+
+# This template saves the unseal keys and root token so it can be used after
+# Vault has been initialized.
+# Not a secure solution for production deployments, good enough for development
+# purposes.
+
+vault_unseal_keys:
+  - /JDhOHweeXukmO9FEy0hRwCcCAFLlYifPlNrOk90hDpN
+  - b40O9oFV8dBAThbz3T3c52JUxbluzn7Rkpoxt4TFp1qy
+  - BLzQSXC1brBrBoJdumUep1w/shk1SkCu9bYqkSDd29hp
+  - JLw9xu69XLuyoKdQEwx3u5oGFCMISSPAaFnZrdMAGxaZ
+  - +KVC0uotm4X8FukAlqlo5AwZ54b3YFtkoTod2xkHOgBb
+
+vault_root_token: s.iUpNuwgsof6srkIBiikyYE4U

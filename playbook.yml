@@ -1,0 +1,64 @@
+#!/usr/bin/env ansible-playbook
+---
+- name: create machines
+  hosts: localhost
+  gather_facts: no
+
+  tasks:
+    - name: apply terraform code
+      terraform:
+        project_path: ./terraform
+        state: present
+      register: terraform
+
+    - name: add vault to inventory
+      add_host:
+        name: "{{ terraform.outputs.vault.value }}"
+        groups:
+          - vault
+
+    - name: add mysql to inventory
+      add_host:
+        name: "{{ terraform.outputs.mysql.value }}"
+        groups:
+          - mysql
+
+- name: install shared software
+  hosts: all
+  become: yes
+  gather_facts: no
+
+  roles:
+    - role: robertdebock.bootstrap
+
+- name: install mysql
+  hosts: mysql
+  become: yes
+  gather_facts: yes
+
+  roles:
+    - role: robertdebock.mysql
+
+- name: install vault
+  hosts: vault
+  become: yes
+  gather_facts: yes
+
+  roles:
+    - role: robertdebock.core_dependencies
+    - role: robertdebock.hashicorp
+    - role: robertdebock.vault
+
+  post_tasks:
+    - name: save unseal keys and root token in group_vars
+      template:
+        src: vault.yml.j2
+        dest: group_vars/vault/vault-unseal.yml
+      when:
+        - vault_init_output is defined
+        - vault_init_output.unseal_keys_b64 is defined
+        - vault_init_output is defined
+        - vault_init_output.root_token is defined
+      delegate_to: localhost
+      become: no
+      run_once: yes
