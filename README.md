@@ -5,8 +5,8 @@ Show how dynamic secrets in Vault work.
 ## Overview
 
 This setup consists of:
-- 1 machine running Vault.
-- 2 machine running MySQL.
+- An instance running Vault.
+- An instance running MySQL.
 
 ## Requirements
 
