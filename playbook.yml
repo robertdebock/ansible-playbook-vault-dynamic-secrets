@@ -62,3 +62,19 @@
       delegate_to: localhost
       become: no
       run_once: yes
+
+- name: show connection details
+  hosts: localhost
+  gather_facts: no
+
+  tasks:
+    - name: show vault connaction details
+      debug:
+        msg: "ssh -i ssh_keys/id_rsa root@{{ terraform.outputs.vault.value }}"
+
+    - name: show exports
+      debug:
+        msg:
+          - "export VAULT_IP={{ terraform.outputs.vault.value }}"
+          - "export MYSQL_IP={{ terraform.outputs.mysql.value }}"
+          - "export VAULT_ADDR=http://${VAULT_IP}:8200"

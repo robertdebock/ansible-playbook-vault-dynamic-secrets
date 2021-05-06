@@ -6,10 +6,10 @@
 # purposes.
 
 vault_unseal_keys:
-  - /JDhOHweeXukmO9FEy0hRwCcCAFLlYifPlNrOk90hDpN
-  - b40O9oFV8dBAThbz3T3c52JUxbluzn7Rkpoxt4TFp1qy
-  - BLzQSXC1brBrBoJdumUep1w/shk1SkCu9bYqkSDd29hp
-  - JLw9xu69XLuyoKdQEwx3u5oGFCMISSPAaFnZrdMAGxaZ
-  - +KVC0uotm4X8FukAlqlo5AwZ54b3YFtkoTod2xkHOgBb
+  - I5iVfhCnxgi2lwR0R2Lv3OHpzo7x1zO4Ha9QKQ1Wbc6q
+  - 3+vtRX8CxyrSPr4mMy3I10vR7eH+hiEfO5kW5V75hzX5
+  - 187U0qo3pwWabK1wdJtjKIqL5tW9JB/k/aEfe53CwF4q
+  - tLTLnvm1yJYEOUT8946p/gMjf9hJVasN+81Ru8h4YT9W
+  - hpDWto7OFt6bu9hTqg0lqIMiTeRCHL4tY+fgaYFh/mYk
 
-vault_root_token: s.iUpNuwgsof6srkIBiikyYE4U
+vault_root_token: s.L75xk1FMJxQ5W0TqZl3wWyaQ
